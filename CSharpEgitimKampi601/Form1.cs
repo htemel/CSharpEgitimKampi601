@@ -1,5 +1,7 @@
 ﻿using CSharpEgitimKampi601.Entities;
 using CSharpEgitimKampi601.Services;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,7 +42,40 @@ namespace CSharpEgitimKampi601
 
         private void btnList_Click(object sender, EventArgs e)
         {
+            List<Customer> customers = customerOperations.GetAllCustomer();
+            dataGridView1.DataSource= customers;
+        }
 
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string customerId = txtCustomerId.Text;
+            customerOperations.DeleteCustomer(customerId);
+            MessageBox.Show("Müşeri başarıyla silindi.");
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string id= txtCustomerId.Text;
+            var updateCustomer = new Customer()
+            {
+                CustomerName = txtCustomerName.Text,
+                CustomerSurname = txtCustomerSurname.Text,
+                CustomerBalance = decimal.Parse(txtCustomerBalance.Text),
+                CustomerCity = txtCustomerCity.Text,
+                CustomerShoppingCount = int.Parse(txtCustomerShoppingCount.Text),
+                CustomerId = id
+
+            };
+            customerOperations.UpdateCustomer(updateCustomer);
+            MessageBox.Show("Müşteri Başarıyla Güncellendi.");
+        }
+
+        private void btnGetById_Click(object sender, EventArgs e)
+        {
+            string id=txtCustomerId.Text;
+            Customer customer=customerOperations.GetCustomerById(id);
+            dataGridView1.DataSource=new List<Customer>() { customer};
         }
     }
 }
