@@ -88,5 +88,10 @@ namespace CSharpEgitimKampi601
             GetAllCustomers();
 
         }
+
+        private void btnGetById_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

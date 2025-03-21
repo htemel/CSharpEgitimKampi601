@@ -1,0 +1,21 @@
+﻿Create Table Departments
+(
+DepartmentId serial primary key,
+Department varchar(100) not null
+)
+
+ALTER TABLE Departments
+ RENAME COLUMN Department to DepartmentName;
+
+Create Table Employees
+(
+EmployeeId serial primary key,
+EmployeeName varchar(50) not null,
+EmployeeSurname varchar(50) not null,
+EmployeeSalary decimal not null,
+DepartmentId int,
+Foreign Key (DepartmentId) references Departments(DepartmentId) on delete cascade
+)
+
+
+string connectionString = "Server=localhost;port=5432;Database=CustomerDb;user Id=postgres;password=1";
