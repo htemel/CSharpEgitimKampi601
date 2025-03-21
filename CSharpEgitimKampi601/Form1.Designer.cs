@@ -200,7 +200,7 @@
             this.btnGetById.Name = "btnGetById";
             this.btnGetById.Size = new System.Drawing.Size(114, 41);
             this.btnGetById.TabIndex = 10;
-            this.btnGetById.Text = "ID\'Ye Göre Getir";
+            this.btnGetById.Text = "ID\'Ye Göre\r\n   Getir";
             this.btnGetById.UseVisualStyleBackColor = true;
             this.btnGetById.Click += new System.EventHandler(this.btnGetById_Click);
             // 
