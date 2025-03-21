@@ -73,6 +73,7 @@ namespace CSharpEgitimKampi601
 
         private void btnGetById_Click(object sender, EventArgs e)
         {
+
             string id=txtCustomerId.Text;
             Customer customer=customerOperations.GetCustomerById(id);
             dataGridView1.DataSource=new List<Customer>() { customer};
